@@ -1,0 +1,13 @@
+[Unit]
+Description=YARGSpy Backend
+After=network.target
+
+[Service]
+ExecStart=node /home/goulart/backend/index.js
+WorkingDirectory=/home/goulart/backend
+Restart=always
+User=goulart
+EnvironmentFile=/home/goulart/backend/.env
+
+[Install]
+WantedBy=multi-user.target
