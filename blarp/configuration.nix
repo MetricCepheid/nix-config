@@ -62,7 +62,8 @@
     ];
     packages = with pkgs; [
       kdePackages.kate
-      pkgs.tcpdump
+      tcpdump
+      abcde
       #  thunderbird
     ];
   };
