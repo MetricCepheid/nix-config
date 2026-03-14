@@ -64,6 +64,7 @@
       kdePackages.kate
       tcpdump
       abcde
+      file
       #  thunderbird
     ];
   };
