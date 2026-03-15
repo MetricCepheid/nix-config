@@ -172,6 +172,12 @@
       enableACME = true;
       root = "/srv/metriccepheid.online";
     };
+
+    virtualHosts."neverhax.com" = {
+      forceSSL = true;
+      enableACME = true;
+      root = "/srv/neverhax.com";
+    };
   };
 
   security.acme = {
