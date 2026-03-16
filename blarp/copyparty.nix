@@ -31,6 +31,7 @@
         };
         access = {
           A = [ "metriccepheid" ];
+          r = [ "*" ];
         };
       };
       "/general" = {
