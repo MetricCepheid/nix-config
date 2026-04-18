@@ -62,7 +62,9 @@
     ];
     packages = with pkgs; [
       kdePackages.kate
-      pkgs.tcpdump
+      tcpdump
+      abcde
+      file
       #  thunderbird
     ];
   };
@@ -93,6 +95,7 @@
     git
     distrobox
     nixfmt-rfc-style
+    fastfetch
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -169,6 +172,12 @@
       forceSSL = true;
       enableACME = true;
       root = "/srv/metriccepheid.online";
+    };
+
+    virtualHosts."neverhax.com" = {
+      forceSSL = true;
+      enableACME = true;
+      root = "/srv/neverhax.com";
     };
   };
 
