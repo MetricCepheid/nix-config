@@ -17,6 +17,13 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  zramSwap.enable = true;
+
+  swapDevices = [{
+    device = "/var/lib/swapfile";
+    size = 16384;
+  }];
+
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -78,6 +85,8 @@
     #media-session.enable = true;
   };
 
+  programs.noisetorch.enable = true;
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -110,6 +119,10 @@
      filezilla
      appimage-run
      wineWow64Packages.stable
+     fastfetch
+     protontricks
+     qbittorrent
+     freetype
      (pkgs.wrapOBS {
         plugins = with pkgs.obs-studio-plugins; [
           wlrobs
@@ -152,5 +165,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.11"; # Did you read the comment?
-
 }
