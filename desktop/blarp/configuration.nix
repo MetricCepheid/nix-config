@@ -87,6 +87,13 @@
 
   programs.noisetorch.enable = true;
 
+  services.sunshine = {
+    enable = true;
+    autoStart = true;
+    capSysAdmin = true;
+    openFirewall = true;
+  };
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -104,6 +111,10 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "qtwebengine-5.15.19"
+  ];
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -115,6 +126,8 @@
      mpv
      keepassxc
      kdePackages.kdenlive
+     kdePackages.kcalc
+     krita
      rclone
      filezilla
      appimage-run
@@ -123,6 +136,24 @@
      protontricks
      qbittorrent
      freetype
+     nix-index
+     teamspeak3
+     handbrake
+     krita
+     file
+     p7zip
+     htop
+     cmake
+     pkg-config
+     qt6.qtbase
+     qt6.qttools
+     qt6.qtwayland
+     qtcreator
+     wget
+     zenity
+     winetricks
+     ffmpeg
+     easyeffects
      (pkgs.wrapOBS {
         plugins = with pkgs.obs-studio-plugins; [
           wlrobs
