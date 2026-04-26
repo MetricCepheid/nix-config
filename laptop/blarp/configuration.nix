@@ -171,6 +171,8 @@
       { from = 8000; to = 8010; }
     ];
   };
+
+  networking.firewall.interfaces.tailscale0.allowedTCPPorts = [ 80 443 3210 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
