@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 
 {
   imports = [
@@ -48,6 +48,24 @@
     LC_PAPER = "en_US.UTF-8";
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
+  };
+
+  services = {
+    desktopManager.plasma6.enable = true;
+    displayManager.sddm.enable = true;
+    displayManager.sddm.wayland.enable = true;
+  };
+
+  hardware.bluetooth.enable = true;
+
+  services.sunshine = {
+    enable = true;
+    capSysAdmin = true;
+    openFirewall = true;
+  };
+
+  services.tailscale = {
+    enable = true;
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -96,7 +114,22 @@
     distrobox
     nixfmt-rfc-style
     fastfetch
+    # KDE PLASMA
+    kdePackages.discover
+    kdePackages.kcalc
+    kdePackages.kcharselect
+    kdePackages.kclock
+    kdePackages.kcolorchooser
+    kdePackages.kolourpaint
+    kdePackages.ksystemlog
+    kdePackages.sddm-kcm
+    kdePackages.spectacle
+    kdiff3
+    inputs.waterfox.packages.${pkgs.system}.waterfox-bin
+    moonlight-qt
+    discord-ptb
   ];
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -129,19 +162,15 @@
   };
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [
-    22
-    80
-    443
-    3000
-    3210
-    25565
-  ];
-  networking.firewall.allowedUDPPorts = [
-    3000
-    19132
-    30066
-  ];
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 22 80 443 3000 3210 25565 47984 47989 47990 48010 ];
+    allowedUDPPorts = [ 3000 19132 30066 ];
+    allowedUDPPortRanges = [
+      { from = 47998; to = 48000; }
+      { from = 8000; to = 8010; }
+    ];
+  };
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
