@@ -9,8 +9,12 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./copyparty.nix
-    ./yargspy.nix
+    #./yargspy.nix
   ];
+
+  boot.extraModprobeConfig = ''
+    install algif_aead /run/current-system/sw/bin/false
+  '';
 
   nixpkgs.config.permittedInsecurePackages = [
     "mongodb-ce-8.0.4"
@@ -22,7 +26,7 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "nixos-laptop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -75,7 +79,7 @@
     extraGroups = [
       "networkmanager"
       "wheel"
-      "yargspy"
+      #"yargspy"
       "docker"
     ];
     packages = with pkgs; [
@@ -149,7 +153,7 @@
       PasswordAuthentication = false;
       PermitRootLogin = "prohibit-password";
       AllowUsers = [
-        "yargspy"
+        #"yargspy"
         "metriccepheid"
         "goulart"
         "root"

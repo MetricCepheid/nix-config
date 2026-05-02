@@ -24,7 +24,7 @@
     size = 16384;
   }];
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "nixos-desktop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -125,6 +125,7 @@
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
      discord-ptb
+     fish
      git
      inputs.waterfox.packages.${pkgs.system}.waterfox-bin
      mpv
