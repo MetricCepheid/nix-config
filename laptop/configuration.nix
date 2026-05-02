@@ -62,6 +62,13 @@
 
   hardware.bluetooth.enable = true;
 
+  nix.settings = {
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+  };
+
   services.sunshine = {
     enable = true;
     capSysAdmin = true;

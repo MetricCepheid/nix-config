@@ -18,14 +18,14 @@
     nixosConfigurations.nixos-desktop = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
-        desktop/blarp/configuration.nix
+        desktop/configuration.nix
       ];
     };
 
     nixosConfigurations.nixos-laptop = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
-        laptop/blarp/configuration.nix
+        laptop/configuration.nix
       ];
     };
   };

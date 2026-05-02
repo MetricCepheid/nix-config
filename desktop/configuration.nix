@@ -85,6 +85,13 @@
     #media-session.enable = true;
   };
 
+  nix.settings = {
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+  };
+
   programs.noisetorch.enable = true;
 
   services.sunshine = {
