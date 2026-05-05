@@ -114,6 +114,7 @@
   environment.systemPackages = with pkgs; [
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     #  wget
+    croc
     mongosh
     mongodb-tools
     nodejs
@@ -208,6 +209,12 @@
         proxyPass = "https://localhost:3210";
         recommendedProxySettings = true;
       };
+    };
+
+    virtualHosts."scpdcb.metriccepheid.online" = {
+      forceSSL = true;
+      enableACME = true;
+      root = "/srv/dcb.metriccepheid.online";
     };
 
     virtualHosts."metriccepheid.online" = {
