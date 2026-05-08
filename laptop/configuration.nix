@@ -126,6 +126,7 @@
     distrobox
     nixfmt-rfc-style
     fastfetch
+    p7zip
     # KDE PLASMA
     kdePackages.discover
     kdePackages.kcalc
