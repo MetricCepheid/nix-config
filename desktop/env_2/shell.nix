@@ -71,8 +71,5 @@
     ocamlPackages.ssl
     openssl_3
   ]);
-  
-  LD_LIBRARY_PATH = "${pkgs.stdenv.cc.cc.lib}/lib";
-
   runScript = "bash";
 }).env

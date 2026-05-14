@@ -67,6 +67,8 @@
     ];
   };
 
+  services.flatpak.enable = true;
+
   programs.noisetorch.enable = true;
 
   services.sunshine = {
@@ -90,11 +92,11 @@
   };
 
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.permittedInsecurePackages = [
-    "qtwebengine-5.15.19"
-  ];
 
   environment.systemPackages = with pkgs; [
+     prismlauncher
+     qpwgraph
+     rpcs3
      audacity
      dotnetCorePackages.sdk_8_0_4xx-bin
      dotnetCorePackages.runtime_8_0-bin
@@ -113,11 +115,10 @@
      wineWow64Packages.stable
      fastfetch
      protontricks
-     python3
      qbittorrent
      freetype
      nix-index
-     teamspeak3
+     # teamspeak3 - needs qtwebengine, fuck that lol (flatpak it is)
      handbrake
      krita
      file
@@ -125,16 +126,21 @@
      htop
      cmake
      pkg-config
-     qt6.qtbase
-     qt6.qttools
-     qt6.qtwayland
-     qtcreator
+     #qt6.qtbase
+     #qt6.qttools
+     #qt6.qtwayland
+     #qtcreator
      wget
      zenity
      winetricks
      ffmpeg
      easyeffects
      imhex
+     (python3.withPackages ( ps: with ps; [
+         numpy
+         torch
+         soundfile
+     ]))
      (pkgs.wrapOBS {
         plugins = with pkgs.obs-studio-plugins; [
           wlrobs
