@@ -114,20 +114,22 @@
   environment.systemPackages = with pkgs; [
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     #  wget
-    croc
-    mongosh
-    mongodb-tools
-    nodejs
-    dotnetCorePackages.sdk_8_0_4xx-bin
-    dotnetCorePackages.runtime_8_0-bin
     borgbackup
-    openjdk
-    git
+    croc
     distrobox
-    nixfmt-rfc-style
+    dotnetCorePackages.runtime_8_0-bin
+    dotnetCorePackages.sdk_8_0_4xx-bin
     fastfetch
+    git
+    mongodb-tools
+    mongosh
+    nixfmt-rfc-style
+    nodejs
+    openjdk
     p7zip
     # KDE PLASMA
+    discord-ptb
+    inputs.waterfox.packages.${pkgs.system}.waterfox-bin
     kdePackages.discover
     kdePackages.kcalc
     kdePackages.kcharselect
@@ -138,9 +140,7 @@
     kdePackages.sddm-kcm
     kdePackages.spectacle
     kdiff3
-    inputs.waterfox.packages.${pkgs.system}.waterfox-bin
     moonlight-qt
-    discord-ptb
   ];
 
 
