@@ -94,49 +94,44 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-     dolphin-emu              # Nintendo Wii™️ Emulator
-     prismlauncher            # minecraft
-     qpwgraph                 # pipewire graph manager
-     rpcs3                    # Playstation 3™️ Emulator
+     appimage-run             # container for running
      audacity                 # audio editor
-     dotnetCorePackages.sdk_8_0_4xx-bin
-     dotnetCorePackages.runtime_8_0-bin
+     cmake
      discord-ptb              # fuckass app to talk to weird people
-     fish                     # meow
-     git                      # version control system
-     inputs.waterfox.packages.${pkgs.system}.waterfox-bin # web browser
-     mpv                      # video player
-     keepassxc                # password keeper client
-     kdePackages.kdenlive     # video editor
-     kdePackages.kcalc        # caluclaotr
-     #krita                   # duplicate image editor for some fucking reason
-     rclone                   # outright fucking awesome file-syncing client
-     filezilla                # outright fucking awful ftp client
-     appimage-run             # container for running 
-     wineWow64Packages.stable # wine but 64-bit
+     dolphin-emu              # Nintendo Wii™️ Emulator
+     dotnetCorePackages.runtime_8_0-bin
+     dotnetCorePackages.sdk_8_0_4xx-bin
+     easyeffects              # Voice changer
      fastfetch                # like neofetch but less ableist
+     ffmpeg                   # cli audio/video/subtitle/metadata editor
+     file                     # gives you the metadata of a specified file
+     filezilla                # outright fucking awful ftp client
+     fish                     # meow
+     freetype                 # font thing
+     git                      # version control system
+     handbrake                # video compressor
+     htop                     # cli task manager
+     imhex                    # Hex Editing
+     inputs.waterfox.packages.${pkgs.system}.waterfox-bin # web browser
+     kdePackages.kcalc        # caluclaotr
+     kdePackages.kdenlive     # video editor
+     keepassxc                # password keeper client
+     krita                    # image editor
+     mpv                      # video player
+     nix-index
+     p7zip                    # 7zip but p
+     pkg-config
+     prismlauncher            # minecraft
      protontricks             # easy proton(wine) settings
      qbittorrent              # torrenter
-     freetype                 # font thing
-     nix-index
-     # teamspeak3 - needs qtwebengine, fuck that lol (flatpak it is)
-     handbrake                # video compressor
-     krita                    # image editor
-     file                     # gives you the metadata of a specified file
-     p7zip                    # 7zip but p
-     htop                     # cli task manager
-     cmake
-     pkg-config
-     #qt6.qtbase
-     #qt6.qttools
-     #qt6.qtwayland
-     #qtcreator
+     qpwgraph                 # pipewire graph manager
+     rclone                   # outright fucking awesome file-syncing client
+     rpcs3                    # Playstation 3™️ Emulator
      wget                     # internet file downloader
-     zenity                   # gtk dialog thing
+     wineWow64Packages.stable # wine but 64-bit
      winetricks               # easy wine settings
-     ffmpeg                   # cli audio/video/subtitle/metadata editor
-     easyeffects              # Voice changer
-     imhex                    # Hex Editing
+     zenity                   # gtk dialog thing
+
      (python3.withPackages ( ps: with ps; [ # Eventually replace
          numpy
          torch
@@ -149,6 +144,12 @@
           obs-pipewire-audio-capture
         ];
       })
+
+     #qt6.qtbase
+     #qt6.qttools
+     #qt6.qtwayland
+     #qtcreator
+     #teamspeak3 - needs qtwebengine, fuck that lol (flatpak it is)
   ];
 
   programs.steam = {
