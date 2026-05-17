@@ -31,6 +31,7 @@
     libsm
     ocamlPackages.ssl
     openssl_3
+    dotnetCorePackages.dotnet_8.sdk
   ]) ++ (with pkgs.xorg; [
     libX11
     libXcursor
@@ -70,6 +71,7 @@
     libsm
     ocamlPackages.ssl
     openssl_3
+    dotnetCorePackages.dotnet_8.sdk
   ]);
   
   LD_LIBRARY_PATH = "${pkgs.stdenv.cc.cc.lib}/lib";

@@ -94,54 +94,55 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-     prismlauncher
-     qpwgraph
-     rpcs3
-     audacity
+     dolphin-emu              # Nintendo Wii™️ Emulator
+     prismlauncher            # minecraft
+     qpwgraph                 # pipewire graph manager
+     rpcs3                    # Playstation 3™️ Emulator
+     audacity                 # audio editor
      dotnetCorePackages.sdk_8_0_4xx-bin
      dotnetCorePackages.runtime_8_0-bin
-     discord-ptb
-     fish
-     git
-     inputs.waterfox.packages.${pkgs.system}.waterfox-bin
-     mpv
-     keepassxc
-     kdePackages.kdenlive
-     kdePackages.kcalc
-     krita
-     rclone
-     filezilla
-     appimage-run
-     wineWow64Packages.stable
-     fastfetch
-     protontricks
-     qbittorrent
-     freetype
+     discord-ptb              # fuckass app to talk to weird people
+     fish                     # meow
+     git                      # version control system
+     inputs.waterfox.packages.${pkgs.system}.waterfox-bin # web browser
+     mpv                      # video player
+     keepassxc                # password keeper client
+     kdePackages.kdenlive     # video editor
+     kdePackages.kcalc        # caluclaotr
+     #krita                   # duplicate image editor for some fucking reason
+     rclone                   # outright fucking awesome file-syncing client
+     filezilla                # outright fucking awful ftp client
+     appimage-run             # container for running 
+     wineWow64Packages.stable # wine but 64-bit
+     fastfetch                # like neofetch but less ableist
+     protontricks             # easy proton(wine) settings
+     qbittorrent              # torrenter
+     freetype                 # font thing
      nix-index
      # teamspeak3 - needs qtwebengine, fuck that lol (flatpak it is)
-     handbrake
-     krita
-     file
-     p7zip
-     htop
+     handbrake                # video compressor
+     krita                    # image editor
+     file                     # gives you the metadata of a specified file
+     p7zip                    # 7zip but p
+     htop                     # cli task manager
      cmake
      pkg-config
      #qt6.qtbase
      #qt6.qttools
      #qt6.qtwayland
      #qtcreator
-     wget
-     zenity
-     winetricks
-     ffmpeg
-     easyeffects
-     imhex
-     (python3.withPackages ( ps: with ps; [
+     wget                     # internet file downloader
+     zenity                   # gtk dialog thing
+     winetricks               # easy wine settings
+     ffmpeg                   # cli audio/video/subtitle/metadata editor
+     easyeffects              # Voice changer
+     imhex                    # Hex Editing
+     (python3.withPackages ( ps: with ps; [ # Eventually replace
          numpy
          torch
          soundfile
      ]))
-     (pkgs.wrapOBS {
+     (pkgs.wrapOBS { # Recording/Streaming software
         plugins = with pkgs.obs-studio-plugins; [
           wlrobs
           obs-backgroundremoval
