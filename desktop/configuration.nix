@@ -94,7 +94,7 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-     appimage-run             # container for running
+     appimage-run             # container for running prebuilt binaries that nixos normally cant
      audacity                 # audio editor
      cmake
      discord-ptb              # fuckass app to talk to weird people

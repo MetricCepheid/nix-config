@@ -114,24 +114,24 @@
   environment.systemPackages = with pkgs; [
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     #  wget
-    borgbackup
-    croc
-    distrobox
+    borgbackup        # space-efficient storage of automatic backups
+    croc              # tool that allows any two pcs to simply and securely transfer files/folders
+    distrobox         # container for testing other linux distros without having to dualboot or install a vm
     dotnetCorePackages.runtime_8_0-bin
     dotnetCorePackages.sdk_8_0_4xx-bin
-    fastfetch
-    git
-    mongodb-tools
-    mongosh
-    nixfmt-rfc-style
-    nodejs
-    openjdk
-    p7zip
-    # KDE PLASMA
-    discord-ptb
-    inputs.waterfox.packages.${pkgs.system}.waterfox-bin
+    fastfetch         # like neofetch but less ableist
+    git               # version control system
+    mongodb-tools     # Database tooling
+    mongosh           # Database tooling
+    nixfmt-rfc-style  # automatic nix language code formatter
+    nodejs            # JavaScript runtime environment
+    openjdk           # Java
+    p7zip             # 7zip but p
+    # --- KDE PLASMA ----
+    discord-ptb       # fuckass app to talk to weird people
+    inputs.waterfox.packages.${pkgs.system}.waterfox-bin # web browser
     kdePackages.discover
-    kdePackages.kcalc
+    kdePackages.kcalc # calubalsdclotor
     kdePackages.kcharselect
     kdePackages.kclock
     kdePackages.kcolorchooser
@@ -139,8 +139,8 @@
     kdePackages.ksystemlog
     kdePackages.sddm-kcm
     kdePackages.spectacle
-    kdiff3
-    moonlight-qt
+    kdiff3           # allows for comparing files/folders
+    moonlight-qt     # pc streaming
   ];
 
 
