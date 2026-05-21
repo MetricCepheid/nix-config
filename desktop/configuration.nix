@@ -96,6 +96,7 @@
   environment.systemPackages = with pkgs; [
      appimage-run             # container for running prebuilt binaries that nixos normally cant
      audacity                 # audio editor
+     croc                     # file sharing but easier:tm:
      cmake
      discord-ptb              # fuckass app to talk to weird people
      dolphin-emu              # Nintendo Wii™️ Emulator
