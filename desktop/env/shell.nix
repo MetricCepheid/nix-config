@@ -3,6 +3,11 @@
 (pkgs.buildFHSEnv {
   name = "simple-x11-env";
   targetPkgs = pkgs: (with pkgs; [
+    gobject-introspection
+    atk
+    harfbuzz
+    pango
+    gtk3
     udev
     alsa-lib
     zlib
@@ -43,6 +48,11 @@
     libXxf86vm
   ]);
   multiPkgs = pkgs: (with pkgs; [
+    gobject-introspection
+    atk
+    harfbuzz
+    pango
+    gtk3
     udev
     alsa-lib
     zlib

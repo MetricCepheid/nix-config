@@ -69,6 +69,9 @@
 
   services.flatpak.enable = true;
 
+  virtualisation.waydroid.enable = true;
+  virtualisation.waydroid.package = pkgs.waydroid-nftables;
+
   programs.noisetorch.enable = true;
 
   services.sunshine = {
@@ -94,6 +97,8 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+     yt-dlp
+     reaper
      appimage-run             # container for running prebuilt binaries that nixos normally cant
      audacity                 # audio editor
      croc                     # file sharing but easier:tm:
