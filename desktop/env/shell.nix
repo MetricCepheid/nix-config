@@ -1,90 +1,27 @@
 { pkgs ? import <nixpkgs> {} }:
-
-(pkgs.buildFHSEnv {
-  name = "simple-x11-env";
-  targetPkgs = pkgs: (with pkgs; [
-    gobject-introspection
-    atk
-    harfbuzz
-    pango
-    gtk3
-    udev
-    alsa-lib
-    zlib
-    fuse
-    libGL
-    libfontenc
-    pkg-config
-    fontconfig
-    freetype
-    ftgl
-    gperf
-    pkgconf
-    expat
-    gmp
-    gcc
-    idris
-    glib
-    nss
-    postgresql
-    autoPatchelfHook
-    libz
-    libglvnd
-    openal
-    icu
-    libice
-    libsm
-    ocamlPackages.ssl
-    openssl_3
-    dotnetCorePackages.dotnet_8.sdk
-  ]) ++ (with pkgs.xorg; [
-    libX11
-    libXcursor
-    libXrandr
-    libXext
-    libXtst
-    libXi
-    libXrender
-    libXxf86vm
-  ]);
-  multiPkgs = pkgs: (with pkgs; [
-    gobject-introspection
-    atk
-    harfbuzz
-    pango
-    gtk3
-    udev
-    alsa-lib
-    zlib
-    fuse
-    libGL
-    libfontenc
-    pkg-config
-    fontconfig
-    freetype
-    ftgl
-    gperf
-    pkgconf
-    expat
-    gmp
-    gcc
-    idris
-    glib
-    nss
-    postgresql
-    autoPatchelfHook
-    libz
-    libglvnd
-    openal
-    icu
-    libice
-    libsm
-    ocamlPackages.ssl
-    openssl_3
-    dotnetCorePackages.dotnet_8.sdk
-  ]);
-  
-  LD_LIBRARY_PATH = "${pkgs.stdenv.cc.cc.lib}/lib";
-
-  runScript = "bash";
-}).env
+  pkgs.mkShell {
+    nativeBuildInputs = [
+      pkgs.pkg-config
+    ];
+    buildInputs = [
+      pkgs.qt6.qtbase
+      pkgs.qt6.qtwebengine
+      pkgs.qt6.qttools
+      pkgs.qt6.qtdeclarative
+      pkgs.qt6.qt5compat
+      pkgs.qt6.qtwebchannel
+      pkgs.qt6.qtpositioning
+      pkgs.qt6.qtsvg
+      pkgs.sdl3
+      pkgs.sndio
+      pkgs.jack2
+      pkgs.qtcreator
+      pkgs.cmake
+      pkgs.ninja
+      pkgs.glew
+      pkgs.openal
+      pkgs.vulkan-validation-layers
+      pkgs.udev
+      pkgs.systemd
+    ];
+}

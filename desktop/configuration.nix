@@ -102,7 +102,6 @@
      appimage-run             # container for running prebuilt binaries that nixos normally cant
      audacity                 # audio editor
      croc                     # file sharing but easier:tm:
-     cmake
      discord-ptb              # fuckass app to talk to weird people
      dolphin-emu              # Nintendo Wii™️ Emulator
      dotnetCorePackages.runtime_8_0-bin
@@ -132,11 +131,14 @@
      qbittorrent              # torrenter
      qpwgraph                 # pipewire graph manager
      rclone                   # outright fucking awesome file-syncing client
-     rpcs3                    # Playstation 3™️ Emulator
+     rpcs3                   # broken on 26.05 as of 06/06/26                # Playstation 3™️ Emulator
      wget                     # internet file downloader
      wineWow64Packages.stable # wine but 64-bit
      winetricks               # easy wine settings
      zenity                   # gtk dialog thing
+
+     cmake
+     ninja
 
      (python3.withPackages ( ps: with ps; [ # Eventually replace
          numpy
