@@ -69,6 +69,7 @@
 
   services.flatpak.enable = true;
 
+  virtualisation.vmware.host.enable = true; # what is bro doing????
   virtualisation.waydroid.enable = true;
   virtualisation.waydroid.package = pkgs.waydroid-nftables;
 
