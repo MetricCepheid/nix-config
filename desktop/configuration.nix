@@ -98,11 +98,13 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+     sm64coopdx
      yt-dlp
      reaper
      appimage-run             # container for running prebuilt binaries that nixos normally cant
      audacity                 # audio editor
      croc                     # file sharing but easier:tm:
+     chatterino2              # meow
      discord-ptb              # fuckass app to talk to weird people
      dolphin-emu              # Nintendo Wii™️ Emulator
      dotnetCorePackages.runtime_8_0-bin
@@ -132,7 +134,8 @@
      qbittorrent              # torrenter
      qpwgraph                 # pipewire graph manager
      rclone                   # outright fucking awesome file-syncing client
-     rpcs3                   # broken on 26.05 as of 06/06/26                # Playstation 3™️ Emulator
+     #rpcs3                   # broken on 26.05 as of 06/06/26                # PlayStation 3™️ Emulator
+     pcsx2                    # PlayStation 2™️ Emulator
      wget                     # internet file downloader
      wineWow64Packages.stable # wine but 64-bit
      winetricks               # easy wine settings

@@ -23,5 +23,7 @@
       pkgs.vulkan-validation-layers
       pkgs.udev
       pkgs.systemd
+      pkgs.pkgconf
+      pkgs.python3
     ];
 }
