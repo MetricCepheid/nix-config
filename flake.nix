@@ -6,12 +6,14 @@
     waterfox.url = "github:Hythera/nix-waterfox";
     copyparty.url = "github:9001/copyparty";
     copyparty.inputs.nixpkgs.follows = "nixpkgs";
+    nixpkgs-rpcs3.url = "github:NixOS/nixpkgs/9cadaf6932b7";
   };
   outputs = {
     self,
     nixpkgs,
     waterfox,
-    copyparty
+    copyparty,
+    nixpkgs-rpcs3
   }@inputs: let
   system = "x86_64-linux";
   in {

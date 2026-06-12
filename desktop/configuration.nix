@@ -1,7 +1,5 @@
 { inputs, config, pkgs, ... }:
 {
-  nixpkgs-rpcs3.url = "github:NixOS/nixpkgs/9cadaf6932b7";
-
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -97,6 +95,12 @@
   };
 
   nixpkgs.config.allowUnfree = true;
+
+  nixpkgs.overlays = [
+    (final: prev: {
+      rpcs3 = inputs.nixpkgs-rpcs3.legacyPackages.${pkgs.stdenv.hostPlatform.system}.rpcs3;
+    })
+  ];
 
   environment.systemPackages = with pkgs; [
      sm64coopdx
