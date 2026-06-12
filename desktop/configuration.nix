@@ -1,6 +1,7 @@
 { inputs, config, pkgs, ... }:
-
 {
+  nixpkgs-rpcs3.url = "github:NixOS/nixpkgs/9cadaf6932b7";
+
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -134,7 +135,8 @@
      qbittorrent              # torrenter
      qpwgraph                 # pipewire graph manager
      rclone                   # outright fucking awesome file-syncing client
-     #rpcs3                   # broken on 26.05 as of 06/06/26                # PlayStation 3™️ Emulator
+     rpcs3                    # PlayStation 3™️ Emulator
+     # broken on 26.05 as of 06/10/26 - with a hacky fix it works
      pcsx2                    # PlayStation 2™️ Emulator
      wget                     # internet file downloader
      wineWow64Packages.stable # wine but 64-bit
