@@ -102,6 +102,13 @@
     })
   ];
 
+  fonts.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk-sans
+  ];
+
+  fonts.fontconfig.enable = true;
+
   environment.systemPackages = with pkgs; [
      sm64coopdx
      yt-dlp
