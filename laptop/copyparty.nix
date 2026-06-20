@@ -45,6 +45,28 @@
           r = [ "*" ];
         };
       };
+      "/yt-backup/KrinkelsNG" = {
+        path = "/mnt/externaldrive/Personal/YTBackup/KrinkelsNG";
+        flags = {
+          chmod_f = "644";
+          chmod_d = "755";
+        };
+        access = {
+          A = [ "metriccepheid" ];
+          r = [ "*" ];
+        };
+      };
+      "/yt-backup/MetricCepheid" = {
+        path = "/mnt/externaldrive/Personal/YTBackup/MetricCepheid";
+        flags = {
+          chmod_f = "644";
+          chmod_d = "755";
+        };
+        access = {
+          A = [ "metriccepheid" ];
+          r = [ "*" ];
+        };
+      };  
     };
   };
 }
