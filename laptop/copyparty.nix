@@ -13,7 +13,7 @@
         "127.0.0.1"
         "::1"
       ];
-      rproxy = 1;
+      rproxy = -1;
     };
     accounts = {
       # replace this with your account
