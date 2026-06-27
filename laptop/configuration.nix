@@ -123,7 +123,7 @@
     git               # version control system
     mongodb-tools     # Database tooling
     mongosh           # Database tooling
-    nixfmt-rfc-style  # automatic nix language code formatter
+    pkgs.nixfmt       # automatic nix language code formatter
     nodejs            # JavaScript runtime environment
     openjdk           # Java
     p7zip             # 7zip but p
