@@ -66,6 +66,16 @@
     ];
   };
 
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+    settings = {
+      Policy = {
+        AutoEnable = true;
+      };
+    };
+  };
+
   services.flatpak.enable = true;
 
   virtualisation.vmware.host.enable = true; # what is bro doing????
@@ -110,6 +120,7 @@
   fonts.fontconfig.enable = true;
 
   environment.systemPackages = with pkgs; [
+     proton-vpn
      sm64coopdx
      yt-dlp
      reaper
