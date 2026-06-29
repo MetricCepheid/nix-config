@@ -114,6 +114,7 @@
   environment.systemPackages = with pkgs; [
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     #  wget
+    alarm-clock-applet
     borgbackup        # space-efficient storage of automatic backups
     croc              # tool that allows any two pcs to simply and securely transfer files/folders
     distrobox         # container for testing other linux distros without having to dualboot or install a vm
