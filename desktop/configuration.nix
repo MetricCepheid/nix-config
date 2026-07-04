@@ -59,6 +59,11 @@
     #media-session.enable = true;
   };
 
+  programs.gamemode = {
+    enable = true;
+    enableRenice = true;
+  };
+
   nix.settings = {
     experimental-features = [
       "nix-command"
@@ -120,19 +125,16 @@
   fonts.fontconfig.enable = true;
 
   environment.systemPackages = with pkgs; [
-     proton-vpn
-     sm64coopdx
-     yt-dlp
-     reaper
      appimage-run             # container for running prebuilt binaries that nixos normally cant
      audacity                 # audio editor
-     croc                     # file sharing but easier:tm:
      chatterino2              # meow
+     croc                     # file sharing but easier:tm:
      discord-ptb              # fuckass app to talk to weird people
      dolphin-emu              # Nintendo Wii™️ Emulator
      dotnetCorePackages.runtime_8_0-bin
      dotnetCorePackages.sdk_8_0_4xx-bin
      easyeffects              # Voice changer
+     eden                     # Nintendo Switch™️ Emulator
      fastfetch                # like neofetch but less ableist
      ffmpeg                   # cli audio/video/subtitle/metadata editor
      file                     # gives you the metadata of a specified file
@@ -144,25 +146,33 @@
      htop                     # cli task manager
      imhex                    # Hex Editing
      inputs.waterfox.packages.${pkgs.system}.waterfox-bin # web browser
+     jdk21_headless           # Java
      kdePackages.kcalc        # caluclaotr
      kdePackages.kdenlive     # video editor
      keepassxc                # password keeper client
      krita                    # image editor
      mpv                      # video player
-     nix-index
+     nicotine-plus            # Peer-to-Peer file sharing application
+     nix-index                # meow
      p7zip                    # 7zip but p
-     pkg-config
+     pcsx2                    # PlayStation 2™️ Emulator
+     pkg-config               # meow
      prismlauncher            # minecraft
+     proton-vpn               # yeah
      protontricks             # easy proton(wine) settings
      qbittorrent              # torrenter
      qpwgraph                 # pipewire graph manager
      rclone                   # outright fucking awesome file-syncing client
+     reaper                   # digital audio workstation i think
      rpcs3                    # PlayStation 3™️ Emulator
      # broken on 26.05 as of 06/10/26 - with a hacky fix it works
-     pcsx2                    # PlayStation 2™️ Emulator
+     ryubing                  # Nintendo Switch™️ Emulator
+     sm64coopdx               # Super Mario 64 PC port
+     vscode                   # yea
      wget                     # internet file downloader
      wineWow64Packages.stable # wine but 64-bit
      winetricks               # easy wine settings
+     yt-dlp                   # yeah time - dipping longingly (at) ponies?
      zenity                   # gtk dialog thing
 
      cmake
@@ -172,6 +182,7 @@
          numpy
          torch
          soundfile
+         pyinstaller
      ]))
      (pkgs.wrapOBS { # Recording/Streaming software
         plugins = with pkgs.obs-studio-plugins; [
