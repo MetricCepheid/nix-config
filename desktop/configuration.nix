@@ -125,6 +125,7 @@
   fonts.fontconfig.enable = true;
 
   environment.systemPackages = with pkgs; [
+     xwayland-satellite       # xwayalnd outside of the wayland compositor
      appimage-run             # container for running prebuilt binaries that nixos normally cant
      audacity                 # audio editor
      chatterino2              # meow
@@ -146,7 +147,8 @@
      htop                     # cli task manager
      imhex                    # Hex Editing
      inputs.waterfox.packages.${pkgs.system}.waterfox-bin # web browser
-     jdk21_headless           # Java
+     # jdk21_headless           # Java21
+     jdk8_headless            # Java8
      kdePackages.kcalc        # caluclaotr
      kdePackages.kdenlive     # video editor
      keepassxc                # password keeper client
@@ -183,6 +185,9 @@
          torch
          soundfile
          pyinstaller
+         imageio
+         pillow
+         requests
      ]))
      (pkgs.wrapOBS { # Recording/Streaming software
         plugins = with pkgs.obs-studio-plugins; [
