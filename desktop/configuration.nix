@@ -147,8 +147,8 @@
      htop                     # cli task manager
      imhex                    # Hex Editing
      inputs.waterfox.packages.${pkgs.system}.waterfox-bin # web browser
-     # jdk21_headless           # Java21
-     jdk8_headless            # Java8
+     jdk21_headless           # Java21
+     # jdk8_headless            # Java8
      kdePackages.kcalc        # caluclaotr
      kdePackages.kdenlive     # video editor
      keepassxc                # password keeper client
