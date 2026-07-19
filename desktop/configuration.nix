@@ -125,6 +125,7 @@
   fonts.fontconfig.enable = true;
 
   environment.systemPackages = with pkgs; [
+     fbcat
      xwayland-satellite       # xwayalnd outside of the wayland compositor
      appimage-run             # container for running prebuilt binaries that nixos normally cant
      audacity                 # audio editor
