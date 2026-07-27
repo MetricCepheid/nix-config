@@ -110,7 +110,7 @@
   users.users.metriccepheid = {
     isNormalUser = true;
     description = "metriccepheid";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "adbusers" ];
     packages = with pkgs; [
       kdePackages.kate
     ];
@@ -132,6 +132,8 @@
   fonts.fontconfig.enable = true;
 
   environment.systemPackages = with pkgs; [
+     scrcpy
+     pkgs.android-tools
      fbcat
      xwayland-satellite       # xwayalnd outside of the wayland compositor
      appimage-run             # container for running prebuilt binaries that nixos normally cant
