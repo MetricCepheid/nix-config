@@ -131,7 +131,10 @@
 
   fonts.fontconfig.enable = true;
 
+  security.polkit.enable = true;
+
   environment.systemPackages = with pkgs; [
+     waycrate-swhkd
      scrcpy
      pkgs.android-tools
      fbcat

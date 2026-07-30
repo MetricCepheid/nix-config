@@ -4,6 +4,7 @@
       pkgs.pkg-config
     ];
     buildInputs = [
+      pkgs.rustup
       pkgs.qt6.qtbase
       pkgs.qt6.qtwebengine
       pkgs.qt6.qttools
