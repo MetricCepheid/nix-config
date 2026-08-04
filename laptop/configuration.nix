@@ -107,6 +107,12 @@
     ];
   };
 
+  services.jellyfin = {
+    enable = true;
+    openFirewall = true;
+    user = "metriccepheid";
+  };
+
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
