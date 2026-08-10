@@ -66,6 +66,8 @@
     #media-session.enable = true;
   };
 
+  programs.nix-ld.enable = true;
+
   programs.gamemode = {
     enable = true;
     enableRenice = true;
@@ -134,6 +136,7 @@
   security.polkit.enable = true;
 
   environment.systemPackages = with pkgs; [
+     distrobox
      scrcpy
      pkgs.android-tools
      fbcat
