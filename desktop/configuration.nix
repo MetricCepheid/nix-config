@@ -68,6 +68,11 @@
 
   programs.nix-ld.enable = true;
 
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+  };
+
   programs.gamemode = {
     enable = true;
     enableRenice = true;
