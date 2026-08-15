@@ -140,13 +140,22 @@
 
   security.polkit.enable = true;
 
+  programs.appimage = { # container for running prebuilt binaries that nixos normally cant
+    enable = true;
+    binfmt = true;
+    package = pkgs.appimage-run.override {
+      extraPkgs = pkgs: [
+        pkgs.icu
+      ];
+    };
+  };
+
   environment.systemPackages = with pkgs; [
      distrobox
      scrcpy
      pkgs.android-tools
      fbcat
      xwayland-satellite       # xwayalnd outside of the wayland compositor
-     appimage-run             # container for running prebuilt binaries that nixos normally cant
      audacity                 # audio editor
      chatterino2              # meow
      croc                     # file sharing but easier:tm:
