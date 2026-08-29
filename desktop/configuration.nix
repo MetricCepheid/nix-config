@@ -73,6 +73,10 @@
     dockerCompat = true;
   };
 
+  services.udev.extraRules = ''
+    KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="1209", ATTRS{idProduct}=="2882", MODE="0660", GROUP="wheel", TAG+="uaccess"
+  '';
+
   programs.gamemode = {
     enable = true;
     enableRenice = true;
@@ -152,6 +156,8 @@
 
   environment.systemPackages = with pkgs; [
      distrobox
+     php
+     clang
      scrcpy
      pkgs.android-tools
      fbcat
