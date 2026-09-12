@@ -157,6 +157,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+     uxplay
      libimobiledevice
      distrobox
      php
