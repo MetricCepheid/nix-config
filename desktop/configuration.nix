@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, ... }:
+{ inputs, config, pkgs, lib, ... }:
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -19,6 +19,8 @@
   networking.hostName = "nixos-desktop"; # Define your hostname.
   networking.networkmanager.enable = true;
   networking.firewall.trustedInterfaces = [ "waydroid0" ];
+  networking.firewall.allowedTCPPorts = [ 1935 8888 ];
+  networking.firewall.allowedUDPPorts = [ 1935 8888 ];
 
   services.usbmuxd.enable = true;
 
@@ -78,6 +80,27 @@
   services.udev.extraRules = ''
     KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="1209", ATTRS{idProduct}=="2882", MODE="0660", GROUP="wheel", TAG+="uaccess"
   '';
+
+  services.mediamtx = {
+    enable = true;
+    settings = {
+      # Enable the RTMP server (defaults to true, but good to make explicit)
+      rtmp = true;
+      rtmpAddress = ":1935"; # Default RTMP port
+
+      # Optional: If you also want to watch the stream via web browser (HLS/WebRTC)
+      hls = true;
+      hlsAddress = ":8888";
+      hlsVariant = "fmp4";
+
+      # Define custom streaming paths if needed (or leave empty for dynamic paths)
+      paths = {
+        all = {
+          # This catch-all allows publishing to any path name automatically
+        };
+      };
+    };
+  };
 
   programs.gamemode = {
     enable = true;
@@ -140,6 +163,8 @@
   fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk-sans
+    corefonts
+    vista-fonts
   ];
 
   fonts.fontconfig.enable = true;
@@ -165,11 +190,13 @@
      scrcpy
      pkgs.android-tools
      fbcat
+     jellyfin-desktop
      xwayland-satellite       # xwayalnd outside of the wayland compositor
      audacity                 # audio editor
      chatterino2              # meow
      croc                     # file sharing but easier:tm:
-     discord-ptb              # fuckass app to talk to weird people
+     # discord-ptb            # fuckass vanilla client to talk to weird people
+     vesktop                  # fuckass modded client to talk to weird people
      dolphin-emu              # Nintendo Wii™️ Emulator
      dotnetCorePackages.runtime_8_0-bin
      dotnetCorePackages.sdk_8_0_4xx-bin
@@ -227,6 +254,7 @@
          imageio
          pillow
          requests
+         beautifulsoup4
      ]))
      (pkgs.wrapOBS { # Recording/Streaming software
         plugins = with pkgs.obs-studio-plugins; [
@@ -242,6 +270,20 @@
      #qtcreator
      #teamspeak3 - needs qtwebengine, fuck that lol (flatpak it is)
   ];
+
+# programs.vesktop = {
+#   enable = true;
+#   settings = {
+#     tray = true;
+#     hardwareAcceleration = true;
+#   };
+#   vencord.settings = {
+#     plugins = {
+#       ClearURLs.enabled = true;
+#       FixYoutubeEmbeds.enabled = true;
+#     };
+#   };
+# };
 
   programs.steam = {
     enable = true;
