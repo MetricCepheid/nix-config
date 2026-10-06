@@ -45,7 +45,11 @@
   };
 
   services.xserver.enable = true;
-  services.displayManager.sddm.enable = true;
+  services.displayManager = {
+    sddm.enable = true;
+    autoLogin.enable = true;
+    autoLogin.user = "metriccepheid";
+  };
   services.desktopManager.plasma6.enable = true;
 
   services.xserver.xkb = {
@@ -182,6 +186,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+     libtas
      uxplay
      libimobiledevice
      distrobox
@@ -195,11 +200,14 @@
      audacity                 # audio editor
      chatterino2              # meow
      croc                     # file sharing but easier:tm:
-     # discord-ptb            # fuckass vanilla client to talk to weird people
+     #  discord-ptb            # fuckass vanilla client to talk to weird people
      vesktop                  # fuckass modded client to talk to weird people
      dolphin-emu              # Nintendo Wii™️ Emulator
+     dotnet-sdk
      dotnetCorePackages.runtime_8_0-bin
      dotnetCorePackages.sdk_8_0_4xx-bin
+     mono
+     msbuild
      easyeffects              # Voice changer
      eden                     # Nintendo Switch™️ Emulator
      fastfetch                # like neofetch but less ableist
@@ -217,6 +225,7 @@
      # jdk8_headless            # Java8
      kdePackages.kcalc        # caluclaotr
      kdePackages.kdenlive     # video editor
+     kdePackages.plasma-vault # folder encoder
      keepassxc                # password keeper client
      krita                    # image editor
      mpv                      # video player
@@ -245,6 +254,7 @@
 
      cmake
      ninja
+     gtk3
 
      (python3.withPackages ( ps: with ps; [ # Eventually replace
          numpy

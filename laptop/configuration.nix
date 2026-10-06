@@ -10,6 +10,7 @@
     ./hardware-configuration.nix
     ./copyparty.nix
     #./yargspy.nix
+    ./forgejo.nix
   ];
 
   boot.extraModprobeConfig = ''
