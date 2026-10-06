@@ -135,6 +135,7 @@
     nodejs            # JavaScript runtime environment
     openjdk           # Java
     p7zip             # 7zip but p
+    rclone
     # --- KDE PLASMA ----
     discord-ptb       # fuckass app to talk to weird people
     inputs.waterfox.packages.${pkgs.system}.waterfox-bin # web browser
