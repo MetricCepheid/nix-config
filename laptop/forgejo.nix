@@ -4,16 +4,16 @@ let
   srv = cfg.settings.server;
 in
 {
-  services.nginx = {
-    virtualHosts."git.metriccepheid.online" = {
-      forceSSL = true;
-      enableACME = true;
-      extraConfig = ''
-        client_max_body_size 512M;
-      '';
-      locations."/".proxyPass = "http://localhost:3000";
-    };
-  };
+#  services.nginx = {
+#    virtualHosts."git.metriccepheid.online" = {
+#      forceSSL = true;
+#      enableACME = true;
+#      extraConfig = ''
+#        client_max_body_size 512M;
+#      '';
+#      locations."/".proxyPass = "http://localhost:3000";
+#    };
+#  };
 
   services.forgejo = {
     enable = true;
