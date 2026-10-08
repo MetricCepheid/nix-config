@@ -5,13 +5,13 @@ let
 in
 {
   services.nginx = {
-    virtualHosts.${srv.DOMAIN} = {
+    virtualHosts."git.metriccepheid.online" = {
       forceSSL = true;
       enableACME = true;
       extraConfig = ''
         client_max_body_size 512M;
       '';
-      locations."/".proxyPass = "http://localhost:${toString srv.HTTP_PORT}";
+      locations."/".proxyPass = "http://localhost:3000";
     };
   };
 
@@ -22,9 +22,9 @@ in
     lfs.enable = false;
     settings = {
       server = {
-        DOMAIN = "forgejo.metriccepheid.online";
+        DOMAIN = "git.metriccepheid.online";
         # You need to specify this to remove the port from URLs in the web UI.
-        ROOT_URL = "https://${srv.DOMAIN}/"; 
+        ROOT_URL = "https://git.metriccepheid.online/"; 
         HTTP_PORT = 3000;
       };
       # You can temporarily allow registration to create an admin user.

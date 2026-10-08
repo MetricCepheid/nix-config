@@ -9,8 +9,8 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./copyparty.nix
-    #./yargspy.nix
-    ./forgejo.nix
+    # ./yargspy.nix
+    # ./forgejo.nix
   ];
 
   boot.extraModprobeConfig = ''
@@ -95,7 +95,7 @@
       tcpdump
       abcde
       file
-      #  thunderbird
+      # thunderbird
     ];
   };
   users.users.goulart = {
@@ -136,6 +136,7 @@
     openjdk           # Java
     p7zip             # 7zip but p
     rclone
+    tmux
     # --- KDE PLASMA ----
     discord-ptb       # fuckass app to talk to weird people
     inputs.waterfox.packages.${pkgs.system}.waterfox-bin # web browser
@@ -211,15 +212,15 @@
     enable = true;
     clientMaxBodySize = "65536m";
 
-    virtualHosts."copyparty.metriccepheid.online" = {
-      forceSSL = true;
-      enableACME = true;
-      locations."/" = {
-        proxyWebsockets = true;
-        proxyPass = "https://localhost:3210";
-        recommendedProxySettings = true;
-      };
-    };
+#    virtualHosts."copyparty.metriccepheid.online" = {
+#      forceSSL = true;
+#      enableACME = true;
+#      locations."/" = {
+#        proxyWebsockets = true;
+#        proxyPass = "https://127.0.0.1:3210";
+#        recommendedProxySettings = true;
+#       };
+#    };
 
     virtualHosts."scpdcb.metriccepheid.online" = {
       forceSSL = true;

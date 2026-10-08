@@ -10,7 +10,7 @@
     settings = {
       p = [ 3210 ];
       xff-src = [
-        "100.67.0.0/16"
+        "100.64.0.0/12"
         "127.0.0.1"
         "::1"
       ];
@@ -24,6 +24,17 @@
     };
     volumes = {
       # set up any volumes you'd like here
+      "/ArbysHasTheMeats" = {
+        path = "/mnt/externaldrive/Personal/ArbysTouchedMeWeird";
+        flags = {
+          chmod_f = "644";
+          chmod_d = "755";
+        };
+        access = {
+          A = [ "metriccepheid" ];
+          r = [ "*" ];
+        };
+      };
       "/music" = {
         path = "/mnt/externaldrive/Personal/Music";
         flags = {
