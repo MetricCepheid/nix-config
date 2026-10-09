@@ -35,5 +35,6 @@ in
         DEFAULT_ACTIONS_URL = "github";
       };
     };
+    stateDir = "/mnt/externaldrive/forgejo";
   };
 }

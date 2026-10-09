@@ -21,9 +21,24 @@
       metriccepheid = {
         passwordFile = "/etc/secrets/copyparty/metriccepheid";
       };
+
+      ghwtdx = {
+        passwordFile = "/etc/secrets/copyparty/GHWTDX";
+      };
     };
     volumes = {
       # set up any volumes you'd like here
+      "/Guitar Hero World Tour Definitive Edition Source Code" = {
+        path = "/mnt/externaldrive/Personal/ghwt-de";
+        flags = {
+          chmod_f = "644";
+          chmod_d = "755";
+        };
+        access = {
+          A = [ "metriccepheid" ];
+          r = [ "metriccepheid" "ghwtdx" ];
+        };
+      };
       "/ArbysHasTheMeats" = {
         path = "/mnt/externaldrive/Personal/ArbysTouchedMeWeird";
         flags = {
